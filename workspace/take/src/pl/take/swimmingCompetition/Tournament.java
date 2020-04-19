@@ -1,0 +1,55 @@
+package pl.take.swimmingCompetition;
+
+import java.io.Serializable;
+import java.sql.Date;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlAttribute;
+
+public class Tournament implements Serializable {
+    int tournamentId;
+    Date startDate;
+    Date endDate;
+    String name;
+    String place;
+
+    @Id
+    @GeneratedValue
+    @XmlAttribute
+    public int getTournamentId() {
+        return this.tournamentId;
+    }
+
+    public Date getStartDate() {
+        return this.startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return this.endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPlace() {
+        return this.place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+}

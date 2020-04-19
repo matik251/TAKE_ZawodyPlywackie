@@ -1,0 +1,23 @@
+INDEX VERSION 1.129+C:\Users\Dell\Documents\GitHub\TAKE_przyklad\workspace\.metadata\.plugins\org.eclipse.jdt.core
+191787008.index
+2278016432.index
+377640644.index
+510885672.index
+3179270194.index
+2818705068.index
+4214089634.index
+607743375.index
+456934726.index
+1213329320.index
+189801039.index
+2565745115.index
+4060105237.index
+760767664.index
+699988048.index
+451146746.index
+2231171608.index
+2569957345.index
+3802528323.index
+3826032776.index
+1391115847.index
+607472894.index

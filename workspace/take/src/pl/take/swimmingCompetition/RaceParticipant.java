@@ -1,0 +1,40 @@
+package pl.take.swimmingCompetition;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+import java.io.Serializable;
+import java.sql.Time;
+
+import javax.persistence.Entity;
+
+@Entity
+@XmlRootElement
+public class RaceParticipant implements Serializable {
+	Time score;
+    int raceId;
+    int swimmerId;
+
+    public Time getScore() {
+        return this.score;
+    }
+
+    public void setScore(Time score) {
+        this.score = score;
+    }
+
+    public int getRaceId() {
+        return this.raceId;
+    }
+
+    public void setRaceId(int raceId) {
+        this.raceId = raceId;
+    }
+
+    public int getSwimmerId() {
+        return this.swimmerId;
+    }
+
+    public void setSwimmerId(int swimmerId) {
+        this.swimmerId = swimmerId;
+    }
+}

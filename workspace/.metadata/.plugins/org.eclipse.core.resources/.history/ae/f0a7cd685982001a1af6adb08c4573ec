@@ -1,0 +1,9 @@
+package pl.take.swimmingCompetition;
+
+import javax.xml.bind.annotation.XmlRootElement;
+
+@Entity
+@XmlRootElement
+public class RaceParticipant {
+
+}
