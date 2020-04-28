@@ -15,6 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Race {
 	int raceId;
+	int competitionId;
     Date dateOfRace;
     int length;
     char genderCategory;
@@ -31,6 +32,14 @@ public class Race {
 
     public Date getDateOfRace() {
         return this.dateOfRace;
+    }
+
+    public void setCompetitiontId(int competitionId) {
+        this.competitionId = competitionId;
+    }
+
+    public int getCompetitiontId() {
+        return this.competitionId;
     }
 
     public void setDateOfRace(Date dateOfRace) {

@@ -7,8 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAttribute;
 
-public class Tournament implements Serializable {
-    int tournamentId;
+public class Competition implements Serializable {
+    int competitionId;
     Date startDate;
     Date endDate;
     String name;
@@ -17,8 +17,8 @@ public class Tournament implements Serializable {
     @Id
     @GeneratedValue
     @XmlAttribute
-    public int getTournamentId() {
-        return this.tournamentId;
+    public int getCompetitiontId() {
+        return this.competitionId;
     }
 
     public Date getStartDate() {
