@@ -11,8 +11,12 @@ import javax.persistence.Entity;
 @XmlRootElement
 public class RaceParticipant implements Serializable {
 	Time score;
-    int raceId;
-    int swimmerId;
+
+    @ManyToOne
+    Race race;
+
+    @ManytToOne
+    Swimmer swimmer;
 
     public Time getScore() {
         return this.score;
@@ -22,19 +26,19 @@ public class RaceParticipant implements Serializable {
         this.score = score;
     }
 
-    public int getRaceId() {
-        return this.raceId;
+    public Race getRace() {
+        return this.race;
     }
 
-    public void setRaceId(int raceId) {
-        this.raceId = raceId;
+    public void setRace(Race race) {
+        this.race = race;
     }
 
-    public int getSwimmerId() {
-        return this.swimmerId;
+    public Swimmer getSwimmer() {
+        return this.swimmer;
     }
 
-    public void setSwimmerId(int swimmerId) {
-        this.swimmerId = swimmerId;
+    public void setSwimmer(Swimmer swimmer) {
+        this.swimmer = swimmer;
     }
 }

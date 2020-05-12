@@ -13,6 +13,9 @@ public class Competition implements Serializable {
     Date endDate;
     String name;
     String place;
+    
+    @OneToMany
+    List<Race> races;
 
     @Id
     @GeneratedValue
@@ -52,4 +55,13 @@ public class Competition implements Serializable {
     public void setPlace(String place) {
         this.place = place;
     }
+
+    public List<Race> getRaces(){
+        return this.races;
+    }
+    
+    public void setRaces(List<Race> races){
+        this.races = races;
+    }
+
 }
