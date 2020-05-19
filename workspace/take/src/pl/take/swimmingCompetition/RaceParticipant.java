@@ -1,11 +1,11 @@
 package pl.take.swimmingCompetition;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 import java.io.Serializable;
 import java.sql.Time;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
@@ -15,8 +15,8 @@ public class RaceParticipant implements Serializable {
     @ManyToOne
     Race race;
 
-    @ManytToOne
-    Swimmer swimmer;
+    @ManyToOne
+    Swimmers swimmer;
 
     public Time getScore() {
         return this.score;
@@ -34,11 +34,11 @@ public class RaceParticipant implements Serializable {
         this.race = race;
     }
 
-    public Swimmer getSwimmer() {
+    public Swimmers getSwimmer() {
         return this.swimmer;
     }
 
-    public void setSwimmer(Swimmer swimmer) {
+    public void setSwimmer(Swimmers swimmer) {
         this.swimmer = swimmer;
     }
 }

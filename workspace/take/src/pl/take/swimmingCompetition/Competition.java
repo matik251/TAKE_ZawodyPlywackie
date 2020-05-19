@@ -5,7 +5,10 @@ import java.sql.Date;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlAttribute;
+
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 public class Competition implements Serializable {
     int competitionId;
@@ -15,7 +18,7 @@ public class Competition implements Serializable {
     String place;
     
     @OneToMany
-    List<Race> races;
+    List races;
 
     @Id
     @GeneratedValue
@@ -56,11 +59,11 @@ public class Competition implements Serializable {
         this.place = place;
     }
 
-    public List<Race> getRaces(){
+    public List getRaces(){
         return this.races;
     }
     
-    public void setRaces(List<Race> races){
+    public void setRaces(List races){
         this.races = races;
     }
 
