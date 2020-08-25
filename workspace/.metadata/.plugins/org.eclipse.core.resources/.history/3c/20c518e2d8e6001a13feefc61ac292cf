@@ -1,0 +1,9 @@
+package pl.take.swimmingCompetition;
+
+import javax.ejb.Local;
+
+@Local
+public interface Menu {
+
+	public abstract String AddCompetition(Competition competition);
+}

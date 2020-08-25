@@ -14,6 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity 
 @XmlRootElement
 public class Race {
+
 	int raceId;
     
     Competition competition;

@@ -3,14 +3,19 @@ package pl.take.swimmingCompetition;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAttribute;
 
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
+@Entity
+@XmlRootElement
 public class Competition implements Serializable {
+	private static final long serialVersionUID = 1L;
     int competitionId;
     Date startDate;
     Date endDate;
