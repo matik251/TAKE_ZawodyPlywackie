@@ -1,0 +1,122 @@
+package pl.kurs;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JOptionPane;
+import javax.swing.table.AbstractTableModel;
+
+public class MenuTableSwimmers extends AbstractTableModel{
+	private static final long serialVersionUID = 1L;
+
+	Menu SwimmersDAO;
+	public void setSwimmersDAO(Menu SwimmersDAO) {	this.SwimmersDAO = SwimmersDAO; }
+
+	/**
+	 * Lokalnie przechowywana lista obiektów.
+	 * Co jakis czas synchronizowana z baz¹.
+	 */
+	List<Swimmers> SwimmersList = new ArrayList<Swimmers>();
+
+	/**
+	 * Inicjalizacja lokalnej listy obiektów
+	 */
+	public void init() {
+		SwimmersList = SwimmersDAO).get();
+	}
+
+	
+	@Override
+	public int getColumnCount() {
+		return 8;
+	}
+
+	@Override
+	public int getRowCount() {
+		return SwimmersList.size();
+	}
+
+	@Override
+	public Object getValueAt(int rowIndex, int columnIndex) {
+		switch(columnIndex) {
+		case 0: return SwimmersList.get(rowIndex).getSwimmerId();
+		case 1: return SwimmersList.get(rowIndex).getName();
+		case 2: return SwimmersList.get(rowIndex).getSurname();
+		case 3: return SwimmersList.get(rowIndex).getGender();
+		case 4: return SwimmersList.get(rowIndex).getWeight();
+		case 5: return SwimmersList.get(rowIndex).getHeight();
+		case 6: return SwimmersList.get(rowIndex).getNationality();
+		case 7: return SwimmersList.get(rowIndex).getTeam();
+		}
+		return null;
+	}
+	public String getColumnName(int columnIndex) {
+		switch(columnIndex) {
+		case 0: return "swimmerId";
+		case 1: return "name";
+		case 2: return "surname";
+		case 3: return "gender";
+		case 4: return "weight";
+		case 5: return "height";
+		case 6: return "nationality";
+		case 7: return "team";
+		}
+		return "";
+	}
+	
+	@Override
+	public boolean isCellEditable(int rowIndex, int columnIndex) {
+		return true;
+	}
+	
+	@Override
+	public void setValueAt(Object o,int rowIndex, int columnIndex) {
+		try{
+		Swimmers swimmers = SwimmersList.get(rowIndex);
+		String txt = (String)o;
+		switch(columnIndex) {
+		case 0: swimmers.setSwimmerId(Integer.parseInt(txt));break;
+		case 1: swimmers.setName(txt);break;
+		case 2: swimmers.setSurname(txt);break;
+		case 3: swimmers.setGender(txt.charAt(0));break;
+		case 4: swimmers.setPrice(Double.parseDouble(txt));break;
+		}
+		SwimmersDAO.updateSwimmers(swimmers);
+		}catch(Exception e) {
+			// w przypadku b³êdu zmiana odrzucona i komunikat o b³êdzie 
+			JOptionPane.showMessageDialog(null, "B³edna wartoœæ wpisana do pola!","B³¹d",JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	/**
+	 * Dodanie samochodu do bazy
+	 * @param car
+	 */
+	public void add(Car car) {
+		carDAO.create(car);
+		//odœwie¿ listê samochodów
+		cars = carDAO.get();
+		//powiadom tabelê JTable, ¿e trzeba odœwie¿yæ widok
+		fireTableDataChanged();
+	}
+	
+	/**
+	 * Stworzenie samochodu i dodanie go do bazy
+	 */
+	public void addNew() {
+		Car car = new Car();
+		add(car);
+	}
+	/**
+	 * Usuniêcie z bazy samochodu wyœwietlanego w tabeli na podanej pozycji 
+	 * @param rowIndex
+	 */
+	public void del(int rowIndex) {
+		Car car = cars.get(rowIndex);
+		carDAO.delete(car.getIdc());
+		//odœwie¿ listê samochodów
+		cars = carDAO.get();
+		//powiadom tabelê JTable, ¿e trzeba odœwie¿yæ widok
+		fireTableDataChanged();
+	}
+}
