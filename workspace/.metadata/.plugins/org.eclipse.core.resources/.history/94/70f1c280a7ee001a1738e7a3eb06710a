@@ -1,0 +1,24 @@
+package pl.take.swimmingCompetition;
+
+import java.util.List;
+
+import javax.ejb.Stateful;
+import javax.persistence.*;
+
+@Stateful
+public class CompetitionEJB {
+
+	@PersistenceContext(name="swimmingCompetition")
+	EntityManager manager;
+	
+	public Competition get(int competitionId) {
+		return manager.find(Competition.class, competitionId);
+	}
+	
+	public List<Competition> getAll() {
+		Query query = manager.createQuery("select c from Competition c");
+		@SuppressWarnings("unchecked")
+		List<Competition> list = query.getResultList();
+		return list;
+	}
+}

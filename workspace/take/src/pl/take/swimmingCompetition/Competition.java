@@ -2,36 +2,52 @@ package pl.take.swimmingCompetition;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Column;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlAttribute;
-
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 @Entity
 @XmlRootElement
+@Table(name="Competition")
 public class Competition implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@Column(name="competitionId")
+	@GeneratedValue
     int competitionId;
+	
+	@Column(name="startDate")
     Date startDate;
+	
+	@Column(name="endDate")
     Date endDate;
+	
+	@Column(name="name")
     String name;
+	
+	@Column(name="place")
     String place;
     
-    @OneToMany
-    List races;
+    @OneToMany(mappedBy="competitionId")
+    Set<Race> raceList;
 
-    @Id
-    @GeneratedValue
-    @XmlAttribute
     public int getCompetitiontId() {
         return this.competitionId;
     }
 
+    public void setCompetitionId(int competitionId) {
+    	this.competitionId = competitionId;
+    }
+    
+    
     public Date getStartDate() {
         return this.startDate;
     }
@@ -40,6 +56,7 @@ public class Competition implements Serializable {
         this.startDate = startDate;
     }
 
+    
     public Date getEndDate() {
         return this.endDate;
     }
@@ -48,6 +65,7 @@ public class Competition implements Serializable {
         this.endDate = endDate;
     }
 
+    
     public String getName() {
         return this.name;
     }
@@ -56,6 +74,7 @@ public class Competition implements Serializable {
         this.name = name;
     }
 
+    
     public String getPlace() {
         return this.place;
     }
@@ -64,12 +83,12 @@ public class Competition implements Serializable {
         this.place = place;
     }
 
-    public List getRaces(){
-        return this.races;
+    
+    public Set<Race> getRaceList() {
+    	return raceList;
     }
     
-    public void setRaces(List races){
-        this.races = races;
+    public void setRaceList(Set<Race> raceList) {
+    	this.raceList = raceList;
     }
-
 }

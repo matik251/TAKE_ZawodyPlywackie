@@ -1,0 +1,47 @@
+package pl.take.swimmingCompetition;
+
+import java.util.List;
+
+import javax.ejb.EJB;
+import javax.ws.rs.*;
+
+@Path("/Competition")
+@Consumes({ "application/xml" })
+@Produces({ "application/xml" })
+public class CompetitionREST implements MyInterface<Competition> {
+
+	@EJB
+	CompetitionEJB bean;
+
+	@Override
+	@GET
+	@Path("/{id}")
+	public Competition get(@PathParam("id") int id) {
+		Competition competition = bean.get(id);
+		return competition;
+	}
+
+	@Override
+	public List<Competition> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void create(Competition t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Competition t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Competition t) {
+		// TODO Auto-generated method stub
+		
+	}
+}

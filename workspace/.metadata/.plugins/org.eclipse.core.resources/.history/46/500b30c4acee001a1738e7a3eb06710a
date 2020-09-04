@@ -1,0 +1,13 @@
+package pl.take.swimmingCompetition;
+
+import java.util.List;
+
+import javax.ejb.EJB;
+import javax.ws.rs.*;
+
+@Path("/Race")
+@Consumes({ "application/xml" })
+@Produces({ "application/xml" })
+public class RaceREST implements MyInterface<Race>{
+
+}

@@ -4,50 +4,62 @@ package pl.take.swimmingCompetition;
 import java.io.Serializable;
 import java.sql.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
 @Entity 
 @XmlRootElement
-public class Race {
+@Table(name="Race")
+public class Race implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@Column(name="raceId")
+	@GeneratedValue
 	int raceId;
-    
-    Competition competition;
-
+ 
+	@Column(name="dateOfRace")
     Date dateOfRace;
+	
+	@Column(name="length")
     int length;
+	
+	@Column(name="genderCategory")
     char genderCategory;
+	
+	@Column(name="ageCategory")
     String ageCategory;
+	
+	@Column(name="raceName")
     String raceName;
+	
+	@Column(name="style")
     String style;
 
-    @Id
-    @GeneratedValue
-    @XmlAttribute
+	@ManyToOne
+	@JoinColumn(name="competitionID")
+	Competition competition;
+	
+	
     public int getRaceId() {
         return this.raceId;
     }
 
+    public void setRaceId(int raceId) {
+    	this.raceId = raceId;
+    }
+    
+    
     public Date getDateOfRace() {
         return this.dateOfRace;
-    }
-
-    public void setCompetitiont(Competition competitionId) {
-        this.competition = competition;
-    }
-
-    public Competition getCompetitiont() {
-        return this.competition;
     }
 
     public void setDateOfRace(Date dateOfRace) {
         this.dateOfRace = dateOfRace;
     }
+    
 
     public int getLength() {
         return this.length;
@@ -57,6 +69,7 @@ public class Race {
         this.length = length;
     }
 
+    
     public char getGenderCategory() {
         return this.genderCategory;
     }
@@ -65,6 +78,7 @@ public class Race {
         this.genderCategory = genderCategory;
     }
 
+    
     public String getAgeCategory() {
         return this.ageCategory;
     }
@@ -73,6 +87,7 @@ public class Race {
         this.ageCategory = ageCategory;
     }
 
+    
     public String getRaceName() {
         return this.raceName;
     }
@@ -87,5 +102,13 @@ public class Race {
 
     public void setStyle(String style) {
         this.style = style;
+    }
+    
+    public Competition getCompetition() {
+    	return competition;
+    }
+    
+    public void setCompetition(Competition competition) {
+    	this.competition = competition;
     }
 }
