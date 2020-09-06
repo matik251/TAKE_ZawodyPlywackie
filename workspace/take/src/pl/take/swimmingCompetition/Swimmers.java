@@ -2,33 +2,52 @@ package pl.take.swimmingCompetition;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
 @Entity 
 @XmlRootElement
+@Table(name="swimmers")
 public class Swimmers implements Serializable{
+	
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@Column(name="swimmerId")
+	@GeneratedValue
     int swimmerId;
+	
+	@Column(name="name")
     String name;
+	
+	@Column(name="surname")
     String surname;
+	
+	@Column(name="gender")
     char gender;
+	
+	@Column(name="weight")
     int weight;
+	
+	@Column(name="height")
     int height;
+	
+	@Column(name="nationality")
     String nationality;
+	
+	@Column(name="team")
     String team;
-    
-    @Id
-    @GeneratedValue
-    @XmlAttribute
+
     public int getSwimmerId() {
         return this.swimmerId;
     }
+    
+    public void setSwimmerId(int id) {
+    	this.swimmerId = id;
+    }
 
+    
     public String getName() {
         return this.name;
     }
@@ -37,6 +56,7 @@ public class Swimmers implements Serializable{
         this.name = name;
     }
 
+    
     public String getSurname() {
         return this.surname;
     }
@@ -45,6 +65,7 @@ public class Swimmers implements Serializable{
         this.surname = surname;
     }
 
+    
     public char getGender() {
         return this.gender;
     }
@@ -53,6 +74,7 @@ public class Swimmers implements Serializable{
         this.gender = gender;
     }
 
+    
     public int getWeight() {
         return this.weight;
     }
@@ -61,6 +83,7 @@ public class Swimmers implements Serializable{
         this.weight = weight;
     }
 
+    
     public int getHeight() {
         return this.height;
     }
@@ -69,6 +92,7 @@ public class Swimmers implements Serializable{
         this.height = height;
     }
 
+    
 	public String getNationality() {
 		return this.nationality;
 	}
@@ -77,6 +101,7 @@ public class Swimmers implements Serializable{
 		this.nationality = nationality;
 	}
 
+	
 	public String getTeam() {
 		return this.team;
 	}

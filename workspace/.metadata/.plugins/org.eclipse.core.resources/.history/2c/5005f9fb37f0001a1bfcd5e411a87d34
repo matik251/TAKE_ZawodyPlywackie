@@ -1,0 +1,47 @@
+package pl.take.swimmingCompetition;
+
+import java.util.List;
+
+import javax.ejb.EJB;
+import javax.ws.rs.*;
+
+@Path("/Swimmers")
+@Consumes({ "application/xml" })
+@Produces({ "application/xml" })
+public class SwimmersREST implements MyInterface<Swimmers> {
+	
+	@EJB
+	SwimmersEJB bean;
+
+	@Override
+	@GET
+	@Path("/{id}")
+	public Swimmers get(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Swimmers> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void create(Swimmers t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Swimmers t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+}

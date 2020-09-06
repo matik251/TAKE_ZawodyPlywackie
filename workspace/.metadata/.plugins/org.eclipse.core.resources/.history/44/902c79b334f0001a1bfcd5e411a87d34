@@ -1,0 +1,10 @@
+package pl.take.swimmingCompetition;
+
+import java.util.List;
+
+import javax.ejb.Stateful;
+import javax.persistence.*;
+
+public class RaceParticipantEJB {
+
+}

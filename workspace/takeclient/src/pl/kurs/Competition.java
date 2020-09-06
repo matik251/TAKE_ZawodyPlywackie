@@ -1,25 +1,28 @@
 package pl.kurs;
 
-
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Set;
 
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlAttribute;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
-
 @XmlRootElement
 public class Competition implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
+	
     int competitionId;
+    
     Date startDate;
+    
     Date endDate;
+    
     String name;
+    
     String place;
     
-//    @OneToMany
-    List races;
+    Set<Race> raceList;
 
     @XmlAttribute
     public int getCompetitiontId() {
@@ -58,12 +61,12 @@ public class Competition implements Serializable {
         this.place = place;
     }
 
-    public List getRaces(){
-        return this.races;
+    public Set<Race> getRaceList(){
+        return raceList;
     }
     
-    public void setRaces(List races){
-        this.races = races;
+    public void setRaceList(Set<Race> raceList){
+        this.raceList = raceList;
     }
 
 }

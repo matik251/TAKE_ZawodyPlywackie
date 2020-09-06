@@ -7,7 +7,9 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class Race {
+public class Race implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	int raceId;
     
@@ -29,11 +31,11 @@ public class Race {
         return this.dateOfRace;
     }
 
-    public void setCompetitiont(Competition competitionId) {
+    public void setCompetition(Competition competition) {
         this.competition = competition;
     }
 
-    public Competition getCompetitiont() {
+    public Competition getCompetition() {
         return this.competition;
     }
 
