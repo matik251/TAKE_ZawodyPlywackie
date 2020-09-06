@@ -1,0 +1,27 @@
+package pl.take.swimmingCompetition;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+
+public class Test {
+public static void main(String[] args) {
+	EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("swimmingCompetition");
+	EntityManager manager = managerFactory.createEntityManager(); 
+	manager.getTransaction().begin();
+	
+	Swimmers car = new Swimmers();
+	car.setName("Fiat");
+	manager.persist(car);
+	
+	Race e = new Race();
+	e.setRaceName("XXX");
+	manager.persist(e);
+	
+	manager.getTransaction().commit();
+	manager.close();
+	managerFactory.close();
+	
+}
+}

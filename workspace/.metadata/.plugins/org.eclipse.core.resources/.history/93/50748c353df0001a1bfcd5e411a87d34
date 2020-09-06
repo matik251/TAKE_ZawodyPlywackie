@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Stateful
 public class RaceParticipantEJB {
 
-	@PersistenceContext(name="komis") /*swimmingCompetition*/
+	@PersistenceContext(name="komis")
 	EntityManager manager;
 	
 	public RaceParticipant get(int id) {
