@@ -6,8 +6,8 @@ import javax.ejb.EJB;
 import javax.ws.rs.*;
 
 @Path("/Swimmers")
-@Consumes({ "application/xml" })
-@Produces({ "application/xml" })
+@Consumes({ "application/json" })
+@Produces({ "application/json" })
 public class SwimmersREST implements MyInterface<Swimmers> {
 	
 	@EJB

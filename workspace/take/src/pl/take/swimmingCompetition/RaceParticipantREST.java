@@ -6,8 +6,8 @@ import javax.ejb.EJB;
 import javax.ws.rs.*;
 
 @Path("/RaceParticipant")
-@Consumes({ "application/xml" })
-@Produces({ "application/xml" })
+@Consumes({ "application/json" })
+@Produces({ "application/json" })
 public class RaceParticipantREST implements MyInterface<RaceParticipant> {
 
 	@EJB

@@ -36,7 +36,7 @@ public class Competition implements Serializable {
 	@Column(name="place")
     String place;
     
-    @OneToMany(mappedBy="competitionId")
+    @OneToMany(mappedBy="competition")
     Set<Race> raceList;
 
     public int getCompetitiontId() {
