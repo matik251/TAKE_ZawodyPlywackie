@@ -15,6 +15,18 @@ public class RaceParticipantREST implements MyInterface<RaceParticipant> {
 	RaceParticipantEJB bean;
 	
 	
+//	@OPTIONS
+//	@Path ("{path:.*}")
+//	public Response options(){
+//		return Response.status(200)
+//				.header("Access-Control-Allow-Origin","*") 
+//				.header("Access-Control-Allow-Headers", "origin, content-type, accept, autrhorization")
+//				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS, HEAD")
+//				.build();
+//	}
+
+	
+	
 	@Override
 	@GET
 	@Path("/{id}")
@@ -31,8 +43,9 @@ public class RaceParticipantREST implements MyInterface<RaceParticipant> {
 
 	@Override
 	@POST
-	public void create(RaceParticipant t) {
+	public Response create(RaceParticipant t) {
 		bean.create(t);
+		return Response.status(200).header("Access-Control-Allow-Origin","*").entity("dodano").build();
 	}
 
 	@Override

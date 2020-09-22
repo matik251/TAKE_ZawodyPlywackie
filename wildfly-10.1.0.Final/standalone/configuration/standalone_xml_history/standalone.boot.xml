@@ -148,7 +148,21 @@
                         <password>sa</password>
                     </security>
                 </datasource>
+                <datasource jta="true" jndi-name="java:/mydb" pool-name="my_pool" enabled="true" use-java-context="true" use-ccm="true">
+                    <connection-url>jdbc:mysql://localhost:6033/zawody</connection-url>
+                    <driver>mysql</driver>
+                    <security>
+                        <user-name>root</user-name>
+                    </security>
+                    <statement>
+                        <prepared-statement-cache-size>100</prepared-statement-cache-size>
+                        <share-prepared-statements>true</share-prepared-statements>
+                    </statement>
+                </datasource>
                 <drivers>
+                    <driver name="mysql" module="com.mysql">
+                        <driver-class>com.mysql.jdbc.Driver</driver-class>
+                    </driver>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
                     </driver>
@@ -366,6 +380,7 @@
                     <location name="/" handler="welcome-content"/>
                     <filter-ref name="server-header"/>
                     <filter-ref name="x-powered-by-header"/>
+					<filter-ref name="Access-Control-Allow-Origin" />
                 </host>
             </server>
             <servlet-container name="default">
@@ -378,6 +393,7 @@
             <filters>
                 <response-header name="server-header" header-name="Server" header-value="WildFly/10"/>
                 <response-header name="x-powered-by-header" header-name="X-Powered-By" header-value="Undertow/1"/>
+				<response-header name="Access-Control-Allow-Origin" header-name="Access-Control-Allow-Origin" header-value="*" />
             </filters>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:webservices:2.0">

@@ -9,11 +9,13 @@ import javax.ws.rs.core.Response;
 @Local
 public interface MyInterface<T> {
 
+	//Response options();
+
 	T get(int id);
 	
 	Response get();
 	
-	void create(T t);
+	Response create(T t);
 	
 	void update(T t);
 

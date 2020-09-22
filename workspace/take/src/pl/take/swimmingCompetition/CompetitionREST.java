@@ -14,6 +14,17 @@ public class CompetitionREST implements MyInterface<Competition> {
 	@EJB
 	CompetitionEJB bean;
 
+//	@OPTIONS
+//	@Path ("{path:.*}")
+//	public Response options(){
+//		return Response.status(200)
+//				.header("Access-Control-Allow-Origin","*") 
+//				.header("Access-Control-Allow-Headers", "origin, content-type, accept, autrhorization")
+//				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS, HEAD")
+//				.build();
+//	}
+
+
 	@Override
 	@GET
 	@Path("/{id}")
@@ -30,8 +41,10 @@ public class CompetitionREST implements MyInterface<Competition> {
 
 	@Override
 	@POST
-	public void create(Competition t) {
+	public Response create(Competition t) {
 		bean.create(t);
+		return Response.status(200).header("Access-Control-Allow-Origin","*").entity("dodano").build();
+
 	}
 
 	@Override
