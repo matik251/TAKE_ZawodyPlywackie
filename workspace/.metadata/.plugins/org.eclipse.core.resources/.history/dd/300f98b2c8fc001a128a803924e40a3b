@@ -23,7 +23,7 @@ public class SwimmersREST implements MyInterface<Swimmers> {
 	}
 
 	@GET
-	public Response get() {
+	public Response getAll() {
 		List<Swimmers> swimmersList = bean.getAll();
 		return Response.status(200).header("Access-Control-Allow-Origin","*").entity(swimmersList).build();
 	}

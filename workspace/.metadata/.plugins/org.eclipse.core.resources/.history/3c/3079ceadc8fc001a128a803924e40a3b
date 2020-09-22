@@ -23,7 +23,7 @@ public class SwimmersREST implements MyInterface<Swimmers> {
 	}
 
 	@GET
-	public Response get() {
+	public Response getAll() {
 		List<Swimmers> swimmersList = bean.getAll();
 		return Response.status(200).header("Access-Control-Allow-Origin","*").entity(swimmersList).build();
 	}
@@ -46,5 +46,4 @@ public class SwimmersREST implements MyInterface<Swimmers> {
 	public void delete(@PathParam("id") int id) {
 		bean.delete(id);
 	}
-
 }

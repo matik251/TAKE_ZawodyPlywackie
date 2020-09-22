@@ -1,7 +1,0 @@
-package pl.take.swimmingCompetition;
-
-import java.util.List;
-
-public class RaceREST {
-
-}

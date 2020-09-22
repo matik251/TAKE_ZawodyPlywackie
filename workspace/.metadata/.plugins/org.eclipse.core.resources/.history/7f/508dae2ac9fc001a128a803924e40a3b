@@ -25,7 +25,7 @@ public class RaceParticipantREST implements MyInterface<RaceParticipant> {
 
 	@GET
 	public Response get() {
-		List<RaceParticipant> raceParticipantList = bean.getAll();
+		List<raceParticipant> raceParticipantList = bean.getAll();
 		return Response.status(200).header("Access-Control-Allow-Origin","*").entity(raceParticipantList).build();
 	}
 
